@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vendor</title>
+        <link rel="stylesheet" href="../Kima Flask/static/files/css/bootstrap.min.css">
+        <script src="../Kima Flask/static/files/js/bootstrap.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+    </head>
+
+    <body>
+        {% include 'navbar.html' %}
+        <!-- create a form for entering the details -->
+        <br><br><br>
+        <section class="row" style="background: #f37335;
+   border-radius: 15px;
+  background-image: url('../static/files/bg.jpg'), url('../static/files/images/clothe1.jpg');
+  background-repeat: no-repeat;
+background-size: 100% 100%;
+  padding: 20px; 
+  width: 80%;
+  height: fit-content;margin:0 auto; ">
+            <div class="col-md-5" style="margin:0 auto;">
+                <h3 class="text-warning" style="text-align: center;">Create a Vendor Account</h3>
+                <form action="" method="post">
+                    <input type="text" name="firstname" placeholder="Your first Name" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="text" name="lastname" placeholder="Enter Last Name" class="form-control"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="email" name="email" placeholder="Your email" class="form-control"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="text" name="town" placeholder="Your Town" class="form-control"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="password" name="password" placeholder="Your password" class="form-control"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="password" name="confirm_password" placeholder="confirm your password"
+                        class="form-control" style="border-radius: 15px;-webkit-text-fill-color: magenta"><br>
+                    <input type="submit" value="Add Vendor" class="buy-btn btn-outline-success"
+                        style="background-color: rgb(4, 231, 4);position:sticky;">
+                </form>
+            </div>
+        </section>
+
+        <br><br><br><br><br><br><br><br>
+
+
+        {% include 'footer.html' %}
+    </body>
+
+</html>

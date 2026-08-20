@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+    <title>Add</title>
+</head>
+<body>
+    <div class="container mt-5 d-flex" style="justify-content: center;width: 80%;">
+        <form class="ui form" method="post" enctype="multipart/form-data">
+            <div class="ui message">
+                <span class="header">{{header}}</span>
+                <p>{{content}}</p>
+
+            </div>
+            <div class="field">
+                <label>Product name</label>
+                <input type="text" name="product_name" placeholder="Product Name">
+            </div>
+            <div class="field">
+                <label>Product Description</label>
+                <textarea name="product_desc" placeholder="Product Description"></textarea>
+            </div>
+            <div class="field">
+                <label>Product Cost</label>
+                <input type="text" name="product_cost" placeholder="Product Cost">
+            </div>
+            <div class="field">
+                <label>Product Category</label>
+                <input type="text" name="product_category" placeholder="Product Category">
+            </div>
+
+            <div class="field">
+                <input name="files" accept="multipart/form-data" type="file" id="invisibleupload" class="ui invisible file input">
+                <label for="invisibleupload" class="ui icon button">
+                <i class="file icon"></i>
+                Choose Product Image
+                </label>
+            </div>
+            <input class="ui positive button" type="submit" value="Add Product">
+        </form>
+    </div>
+</body>
+</html>

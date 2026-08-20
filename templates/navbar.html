@@ -1,0 +1,47 @@
+<style>
+    #sec1 {
+        width: 100%;
+    }
+</style>
+<div class="col-sm-12">
+    <div class="container-fluid">
+        <!-- section for the navbar -->
+        <section id="sec1" class="row">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-expand-md navbar-dark mt-3 mb-2"
+                     style="border-radius:15px;padding:10px;background-color:navajowhite;color:magenta;border-color:transparent">
+                    <a href="/" class="navbar-brand"><img src="../static/files/images/luxury.jpeg" alt="" height="60" width="120"> <b class="text-black"><strong>Soko Garden</strong></b></a>
+                    <!-- toggle button -->
+                    <button type="button" class="navbar-toggler btn-toolbar" data-bs-toggle="collapse"
+                    data-bs-target="#navbarcollapse" id="btn1" style="background-color:white;border-radius:15px;"><span
+                    class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarcollapse">
+                        <ul class="navbar-nav mr-auto" style="color:magenta">
+                            <li class="nav-item"><a href="/" class="active-link nav-link" id="active-link nav-item" style="color:black"><b>Home</b></a></li>
+                            <a href="/" class="nav-item nav-link text-black"><b>Blog</b></a>
+                            <a href="/" class="nav-item nav-link text-black"><b>About</b></a>
+                        </ul>
+                        <div class="ms-auto">
+                            {% if session['key'] %}
+                                <div class="ms-auto">
+                                <p>Logged in: {{ session['key'] }}</p>
+                                <a href="/logout" class="btn text-warning"><b>Logout</b></a>
+                                {% elif session['lastname'] %}
+                                <a href="" class="btn text-success"><b>Logged In</b></a>
+                                {% else %}
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="/signin" class="btn btn-outline text-black">Login</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="/vendor" class="btn btn-outline text-black">Vendor Login</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                <a href="/signup" class="btn btn-outline text-black">signup</a>
+                                </div>
+                            {% endif%}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+</div>

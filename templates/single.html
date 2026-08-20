@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Single item</title>
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+
+    </head>
+
+    <body>
+        {% include 'navbar.html' %}
+        <div class="container-fluid">
+            <section class="row">
+                <div class="col-md-6">
+                    <h2>{{single_item[1]}}</h2>
+                    <img src="../static/files/images/{{single_item[5]}}" alt="..." class="img-fluid" width="80%"
+                        height="350" style="border-radius: 15px">
+
+
+                </div>
+                <div class="col-md-6">
+                    <h3>single_item ID {{single_item[0]}} </h3>
+                    <p>{{single_item[2]}}</p>
+                    <p>KES {{single_item[3]}}</p>
+                    <i class="text-danger">Category {{single_item[4]}} </i>
+                </div>
+            </section>
+            <!-- code for the form -->
+            <section class="row">
+                <div class="col-md-6">
+                    <!-- Check if user is Logged in-->
+                    {% if session['key'] %}
+                    <!-- Create a Form that has an action to mpesa route, We will create this route Next-->
+                    <form action="/mpesa" method="post">
+                        <!-- Bind Current single_item id in an Input-->
+                        <input type="hidden" name="id" value="{{single_item[0]}}" class="form-control"><br>
+
+                        <!-- Create a Phone Number Input -->
+                        <input type="number" name="phone" placeholder="Enter Phone  2547XXXXXX"
+                            class="form-control"><br>
+                        <!-- find the current single_item Amount in an Input -->
+                        <label for="">To Pay KES</label>
+                        <input type="number" name="amount" value="{{ single_item[3]}}" class="form-control"
+                            readonly><br>
+
+                        <input type="submit" value="Pay Now" class="btn btn-dark">
+                    </form>
+                    <!-- If not Logged in, user MUST Login below to see above Form-->
+                    {% else %}
+                    <h4>Please Sign in to make Payment!</h4>
+                    <a href="/signin" class="btn btn-dark btn-sm">Sign in Account</a>
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+        <!-- similar single_items -->
+        <h2 style="color: #f37335;">similar items</h2>
+        <section class="row">
+            {% for similar in similar_products %}
+            <div class="col-md-3">
+                <div class="card" style="border-radius: 15px">
+                    <img src="../static/files/images/{{similar[5]}}" alt="..." class="img-fluid"
+                        style="border-radius: 15px">
+                    <div class="card-body">
+                        <h3>{{similar[1]}}</h3>
+                        <p class="text-warning">KES {{similar[3]}}</p>
+                        <a href="/single_item/{{similar[0]}}" class="buy-btn">Buy Now</a>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+
+        {% include 'footer.html' %}
+    </body>
+
+</html>

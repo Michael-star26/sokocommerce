@@ -1,0 +1,226 @@
+<!-- main page -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+            <!-- include navbar -->
+
+            {% include'navbar.html' %}
+
+
+            {% include'carousel.html' %}
+            <i class="text-lg-danger"> {{message}} </i>
+            <!-- create a section to display the fetched products -->
+            <br>
+            <h2 class="text-success text-capitalized " style="text-decoration:wavy yellowgreen ;text-align: center;">
+                Clothes
+                Category</h2>
+            <section class="slider p-4">
+                <ul class="cs-hidden autoWidth">
+
+                    {% for clothe in myclothe %}
+                    <li>
+                        <div class="">
+                            <div class="slide-img">
+                                <img class="ui small circular image" src="../static/files/images/{{clothe[5]}}" width="50" height="50">
+                                <div class="overlay2">
+                                    <a href="/single_item/{{ clothe[0]}}" class="buy-btn" style="zoom:70%">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+
+            <section>
+                <div class="ui four doubling special cards">
+                    {% for clothe in myclothe %}
+                  <div class="card" style="filter: drop-shadow(0 0 0.25rem navajowhite); border:0px solid transparent;border-color: transparent">
+                    <div class="image" style="background-color: transparent">
+                        <div class="ui green tag labels" >
+                            <i class="ui label text-black">50% off</i>
+                        </div>
+                      <img src="../static/files/images/{{clothe[5]}}">
+                    </div>
+                    <div class="extra content">
+                        <span class="text-black"><strong>{{ clothe[1] }}</strong></span>
+                        <span class="right floated text-warning"><strong>KES {{ clothe[3] }}</strong></span>
+                    </div>
+                    <a href="/single_item/{{ clothe[0]}}" class="ui yellow button text-black">
+                      <i class="cart icon"></i>
+                        Buy Now
+                    </a>
+                  </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+                <br>
+
+            <h2 class="text-success text-capitalized " style="text-decoration:wavy yellowgreen ;text-align: center;">
+                Smartphones</h2>
+            <section class="slider p-4">
+                <ul class="cs-hidden autoWidth">
+
+                    {% for smartphones in mysmartphones %}
+                     <li>
+                        <div class="">
+                            <div class="slide-img">
+                                <img class="ui small circular image" src="../static/files/images/{{smartphones[5]}}" width="50" height="50">
+                                <div class="overlay2">
+                                    <a href="/single_item/{{ smartphones[0]}}" class="buy-btn" style="zoom:70%">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <section>
+                <div class="ui four doubling special cards">
+                    {% for smartphones in mysmartphones %}
+                  <div class="card" style="filter: drop-shadow(0 0 0.25rem navajowhite); border:0px solid transparent;border-color: transparent">
+                    <div class="image" style="background-color: transparent">
+                        <div class="ui green tag labels" >
+                            <i class="ui label text-black">50% off</i>
+                        </div>
+                      <img src="../static/files/images/{{smartphones[5]}}">
+                    </div>
+                    <div class="extra content">
+                        <span class="text-black"><strong>{{ smartphones[1] }}</strong></span>
+                        <span class="right floated text-warning"><strong>KES {{ smartphones[3] }}</strong></span>
+                    </div>
+                    <a href="/single_item/{{ smartphones[0]}}" class="ui yellow button text-black">
+                      <i class="cart icon"></i>
+                        Buy Now
+                    </a>
+                  </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <br>
+            <h2 class="text-success text-capitalized " style="text-decoration:wavy yellowgreen ;text-align: center;">
+                Detergents
+            </h2>
+            <section class="slider p-4">
+                <ul class="cs-hidden autoWidth">
+
+                    {% for detergent in mydetergents %}
+                     <li>
+                        <div class="">
+                            <div class="slide-img">
+                                <img class="ui small circular image" src="../static/files/images/{{detergent[5]}}" width="50" height="50">
+                                <div class="overlay2">
+                                    <a href="/single_item/{{ detergent[0]}}" class="buy-btn" style="zoom:70%">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <section>
+                <div class="ui four doubling special cards">
+                    {% for detergent in mydetergents %}
+                  <div class="card" style="filter: drop-shadow(0 0 0.25rem navajowhite); border:0px solid transparent;border-color: transparent">
+                    <div class="image" style="background-color: transparent">
+                        <div class="ui green tag labels" >
+                            <i class="ui label text-black">50% off</i>
+                        </div>
+                      <img src="../static/files/images/{{detergent[5]}}">
+                    </div>
+                    <div class="extra content">
+                        <span class="text-black"><strong>{{ detergent[1] }}</strong></span>
+                        <span class="right floated text-warning"><strong>KES {{ detergent[3] }}</strong></span>
+                    </div>
+                    <a href="/single_item/{{ detergent[0]}}" class="ui yellow button text-black">
+                      <i class="cart icon"></i>
+                        Buy Now
+                    </a>
+                  </div>
+                    {% endfor %}
+                </div>
+            </section><br>
+            <h2 class="text-success text-capitalized " style="text-decoration:wavy yellowgreen ;text-align: center;">
+                Laptops
+            </h2>
+            <section class="slider p-4">
+                <ul class="cs-hidden autoWidth">
+
+                    {% for laptop in mylaptops %}
+                    <li>
+                        <div class="">
+                            <div class="slide-img">
+                                <img class="ui small circular image" src="../static/files/images/{{laptop[5]}}" width="50" height="50">
+                                <div class="overlay2">
+                                    <a href="/single_item/{{ laptop[0]}}" class="buy-btn" style="zoom:70%">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <section>
+                <div class="ui four doubling special cards">
+                    {% for laptop in mylaptops %}
+                  <div class="card" style="filter: drop-shadow(0 0 0.25rem navajowhite); border:0px solid transparent;border-color: transparent">
+                    <div class="image" style="background-color: transparent">
+                        <div class="ui green tag labels" >
+                            <i class="ui label text-black">50% off</i>
+                        </div>
+                      <img src="../static/files/images/{{laptop[5]}}">
+                    </div>
+                    <div class="extra content">
+                        <span class="text-black"><strong>{{ laptop[1] }}</strong></span>
+                        <span class="right floated text-warning"><strong>KES {{ laptop[3] }}</strong></span>
+                    </div>
+                    <a href="/single_item/{{ laptop[0]}}" class="ui yellow button text-black">
+                      <i class="cart icon"></i>
+                        Buy Now
+                    </a>
+                  </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <footer class="mt-auto p-1">
+                <section class=" w-100 mx-auto rounded-3 text-light text-center"
+                    style="background-color: #3d0303; padding: 2%;">
+                    <p>&copy;2023 &nbsp;&nbsp; My Website <sup>®</sup>&nbsp; &nbsp;<a href=""
+                            class="text-decoration-none text-light">Privacy Policy</a></p>
+
+                </section>
+            </footer>
+
+
+        </div>
+
+    </body>
+
+</html>
