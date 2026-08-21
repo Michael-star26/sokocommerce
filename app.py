@@ -29,6 +29,7 @@ def create_app():
     allowed_origins = [
         "http://localhost:4200",
         "http://127.0.0.1:4200",
+        "https://sokofrontend.vercel.app/",
         os.environ.get("FRONTEND_URL")
     ]
     allowed_origins = [origin for origin in allowed_origins if origin]
