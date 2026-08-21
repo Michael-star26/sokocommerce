@@ -154,14 +154,15 @@ def stk_push_payment():
             "Password": password,
             "Timestamp": timestamp,
             "TransactionType": "CustomerPayBillOnline",
-            "Amount": numeric_amount_int,
+            # "Amount": numeric_amount_int,
+            "Amount": 5,
             "PartyA": phone,
             "PartyB": business_short_code,
             "PhoneNumber": phone,
             "CallBackURL": callback_url,
-            "AccountReference": f"Eka pin mschana",
+            "AccountReference": "Eka pin mschana Comrade atakufa njaa",
             # "AccountReference": f"Order-{order_id}",
-            "TransactionDesc": f"Comrade atakufa njaa"
+            # "TransactionDesc": "Comrade atakufa njaa"
             # "TransactionDesc": f"Payment for Order #{order_id}"
         }
 
