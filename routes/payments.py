@@ -159,10 +159,8 @@ def stk_push_payment():
             "PartyB": business_short_code,
             "PhoneNumber": phone,
             "CallBackURL": callback_url,
-            "AccountReference": "Eka pin mschana",
-            # "AccountReference": f"Order-{order_id}",
-            "TransactionDesc": "Comrade atakufa njaa"
-            # "TransactionDesc": f"Payment for Order #{order_id}"
+            "AccountReference": f"Order-{order_id}",
+            "TransactionDesc": f"Payment for Order #{order_id}"
         }
 
         headers = {
