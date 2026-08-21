@@ -30,7 +30,9 @@ def create_app():
         "http://localhost:4200",
         "http://127.0.0.1:4200",
         "https://sokofrontend.vercel.app",
+        "https://sokofrontend.vercel.app/products"
         "https://sokofrontend-git-main-michaels-projects-a233fb43.vercel.app",
+        "https://sokofrontend-git-main-michaels-projects-a233fb43.vercel.app/products",
         os.environ.get("FRONTEND_URL")
     ]
     
