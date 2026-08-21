@@ -111,11 +111,13 @@ def create_app():
             click.echo(f"User with email '{email}' not found.")
 
     # Auto-create tables in non-production environments
-    if app.config.get('ENV') != 'production':
-        with app.app_context():
-            db.create_all()
+    # if app.config.get('ENV') != 'production':
+    #     with app.app_context():
+    #         db.create_all()
 
-    return app
+    # return app
+    with app.app_context():
+        db.create_all()
 
 
 app = create_app()
