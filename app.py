@@ -29,7 +29,8 @@ def create_app():
     raw_origins = [
         "http://localhost:4200",
         "http://127.0.0.1:4200",
-        "https://sokofrontend.vercel.app",  # Removed trailing slash
+        "https://sokofrontend.vercel.app",
+        "https://sokofrontend-git-main-michaels-projects-a233fb43.vercel.app",
         os.environ.get("FRONTEND_URL")
     ]
     
