@@ -1,6 +1,6 @@
 import os
 import click
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, make_response
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
@@ -25,21 +25,41 @@ def create_app():
     if hasattr(Config, 'validate_production_secrets'):
         Config.validate_production_secrets()
 
-    # Dynamic CORS Configuration (Supports local dev + Deployed Angular Frontend)
-    allowed_origins = [
+    # Dynamic CORS Configuration
+    raw_origins = [
         "http://localhost:4200",
         "http://127.0.0.1:4200",
-        "https://sokofrontend.vercel.app/",
+        "https://sokofrontend.vercel.app",  # Removed trailing slash
         os.environ.get("FRONTEND_URL")
     ]
-    allowed_origins = [origin for origin in allowed_origins if origin]
+    
+    # Clean origins: strip whitespace, remove trailing slashes, filter empties
+    allowed_origins = [
+        origin.strip().rstrip('/') 
+        for origin in raw_origins 
+        if origin and origin.strip()
+    ]
 
     CORS(
         app,
-        resources={r"/*": {"origins": allowed_origins}},
+        resources={r"/api/*": {"origins": allowed_origins}},
         allow_headers=["Content-Type", "Authorization"],
+        methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
         supports_credentials=True
     )
+
+    # Global handler to guarantee HTTP 200 responses on OPTIONS preflight
+    @app.before_request
+    def handle_preflight():
+        if request.method == "OPTIONS":
+            response = make_response()
+            origin = request.headers.get("Origin")
+            if origin in allowed_origins:
+                response.headers.add("Access-Control-Allow-Origin", origin)
+                response.headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+                response.headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS")
+                response.headers.add("Access-Control-Allow-Credentials", "true")
+            return response, 200
 
     # Initialize extensions
     db.init_app(app)
@@ -111,7 +131,6 @@ def create_app():
         else:
             click.echo(f"User with email '{email}' not found.")
 
-    
     with app.app_context():
         db.create_all()
     return app
