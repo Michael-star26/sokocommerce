@@ -161,6 +161,7 @@ def stk_push_payment():
             "CallBackURL": callback_url,
             "AccountReference": "Fanya haraka mschana Comrade atakufa njaa",
             # "AccountReference": f"Order-{order_id}",
+            "TransactionDesc": f"Ni  Friday"
             # "TransactionDesc": f"Payment for Order #{order_id}"
         }
 
